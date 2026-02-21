@@ -15,8 +15,17 @@
     "vin": "4T1K61AK2NU123456",
     "historyReportUrl": "https://www.carfax.com",
     "view360Url": "https://www.toyota.com/camry/",
-    "features": ["Leather Seats", "Adaptive Cruise", "Apple CarPlay"],
-    "specs": {"engine": "2.5L I4", "horsepower": "301 hp", "drivetrain": "FWD", "mpg": "27/38"},
+    "features": [
+      "Leather Seats",
+      "Adaptive Cruise",
+      "Apple CarPlay"
+    ],
+    "specs": {
+      "engine": "2.5L I4",
+      "horsepower": "301 hp",
+      "drivetrain": "FWD",
+      "mpg": "27/38"
+    },
     "images": [
       "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1549399542-7e8d21f350ab?auto=format&fit=crop&w=1200&q=80",
@@ -39,8 +48,17 @@
     "vin": "2HKRW2H57MH654321",
     "historyReportUrl": "https://www.autocheck.com",
     "view360Url": "https://automobiles.honda.com/cr-v",
-    "features": ["Blind Spot Monitor", "Heated Seats", "Remote Start"],
-    "specs": {"engine": "1.5L Turbo", "horsepower": "190 hp", "drivetrain": "AWD", "mpg": "27/32"},
+    "features": [
+      "Blind Spot Monitor",
+      "Heated Seats",
+      "Remote Start"
+    ],
+    "specs": {
+      "engine": "1.5L Turbo",
+      "horsepower": "190 hp",
+      "drivetrain": "AWD",
+      "mpg": "27/32"
+    },
     "images": [
       "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=80",
@@ -63,8 +81,17 @@
     "vin": "1FTFW1E58LFA11111",
     "historyReportUrl": "https://www.carfax.com",
     "view360Url": "https://www.ford.com/trucks/f150/",
-    "features": ["Tow Package", "Backup Camera", "Lane Keep Assist"],
-    "specs": {"engine": "3.5L EcoBoost", "horsepower": "400 hp", "drivetrain": "4WD", "mpg": "18/24"},
+    "features": [
+      "Tow Package",
+      "Backup Camera",
+      "Lane Keep Assist"
+    ],
+    "specs": {
+      "engine": "3.5L EcoBoost",
+      "horsepower": "400 hp",
+      "drivetrain": "4WD",
+      "mpg": "18/24"
+    },
     "images": [
       "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=80",
@@ -87,8 +114,17 @@
     "vin": "5YJ3E1EB1PF987654",
     "historyReportUrl": "https://www.carfax.com",
     "view360Url": "https://www.tesla.com/model3",
-    "features": ["Autopilot", "Panoramic Glass Roof", "Premium Audio"],
-    "specs": {"engine": "Dual Motor", "horsepower": "425 hp", "drivetrain": "AWD", "mpg": "132 MPGe"},
+    "features": [
+      "Autopilot",
+      "Panoramic Glass Roof",
+      "Premium Audio"
+    ],
+    "specs": {
+      "engine": "Dual Motor",
+      "horsepower": "425 hp",
+      "drivetrain": "AWD",
+      "mpg": "132 MPGe"
+    },
     "images": [
       "https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1536700503339-1e4b06520771?auto=format&fit=crop&w=1200&q=80",
@@ -111,8 +147,17 @@
     "vin": "5UX53DP07N9A22222",
     "historyReportUrl": "https://www.autocheck.com",
     "view360Url": "https://www.bmwusa.com/vehicles/x-models/x3/sports-activity-vehicle/overview.html",
-    "features": ["AWD", "Navigation", "Panoramic Sunroof"],
-    "specs": {"engine": "2.0L Turbo", "horsepower": "248 hp", "drivetrain": "AWD", "mpg": "21/28"},
+    "features": [
+      "AWD",
+      "Navigation",
+      "Panoramic Sunroof"
+    ],
+    "specs": {
+      "engine": "2.0L Turbo",
+      "horsepower": "248 hp",
+      "drivetrain": "AWD",
+      "mpg": "21/28"
+    },
     "images": [
       "https://images.unsplash.com/photo-1556800572-1b8aeef2c54f?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1200&q=80",
@@ -135,8 +180,17 @@
     "vin": "1GNSKBKC3KR333333",
     "historyReportUrl": "https://www.carfax.com",
     "view360Url": "https://www.chevrolet.com/suvs/tahoe",
-    "features": ["Third Row", "Bose Audio", "Tow Package"],
-    "specs": {"engine": "5.3L V8", "horsepower": "355 hp", "drivetrain": "4WD", "mpg": "15/21"},
+    "features": [
+      "Third Row",
+      "Bose Audio",
+      "Tow Package"
+    ],
+    "specs": {
+      "engine": "5.3L V8",
+      "horsepower": "355 hp",
+      "drivetrain": "4WD",
+      "mpg": "15/21"
+    },
     "images": [
       "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1616788494672-ec7ca25fdda9?auto=format&fit=crop&w=1200&q=80",
@@ -159,8 +213,17 @@
     "vin": "KMHLM4AG5MU444444",
     "historyReportUrl": "https://www.autocheck.com",
     "view360Url": "https://www.hyundaiusa.com/us/en/vehicles/elantra",
-    "features": ["Lane Keep Assist", "Android Auto", "Keyless Entry"],
-    "specs": {"engine": "2.0L I4", "horsepower": "147 hp", "drivetrain": "FWD", "mpg": "31/41"},
+    "features": [
+      "Lane Keep Assist",
+      "Android Auto",
+      "Keyless Entry"
+    ],
+    "specs": {
+      "engine": "2.0L I4",
+      "horsepower": "147 hp",
+      "drivetrain": "FWD",
+      "mpg": "31/41"
+    },
     "images": [
       "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1549921296-3a6b0f4f8f97?auto=format&fit=crop&w=1200&q=80",
@@ -183,8 +246,17 @@
     "vin": "4S4BTANC6L3335555",
     "historyReportUrl": "https://www.carfax.com",
     "view360Url": "https://www.subaru.com/vehicles/outback.html",
-    "features": ["Symmetrical AWD", "Heated Steering", "Roof Rails"],
-    "specs": {"engine": "2.5L Boxer", "horsepower": "182 hp", "drivetrain": "AWD", "mpg": "26/33"},
+    "features": [
+      "Symmetrical AWD",
+      "Heated Steering",
+      "Roof Rails"
+    ],
+    "specs": {
+      "engine": "2.5L Boxer",
+      "horsepower": "182 hp",
+      "drivetrain": "AWD",
+      "mpg": "26/33"
+    },
     "images": [
       "https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1507136566006-cfc505b114fc?auto=format&fit=crop&w=1200&q=80",
@@ -207,8 +279,17 @@
     "vin": "2T3EWRFV9PW666666",
     "historyReportUrl": "https://www.carfax.com",
     "view360Url": "https://www.toyota.com/rav4hybrid/",
-    "features": ["Hybrid AWD", "Bird's Eye Camera", "Wireless CarPlay"],
-    "specs": {"engine": "2.5L Hybrid", "horsepower": "219 hp", "drivetrain": "AWD", "mpg": "41/38"},
+    "features": [
+      "Hybrid AWD",
+      "Bird's Eye Camera",
+      "Wireless CarPlay"
+    ],
+    "specs": {
+      "engine": "2.5L Hybrid",
+      "horsepower": "219 hp",
+      "drivetrain": "AWD",
+      "mpg": "41/38"
+    },
     "images": [
       "https://images.unsplash.com/photo-1616422285623-13ff0162193c?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1485463611502-2f0ce0f1d5da?auto=format&fit=crop&w=1200&q=80",
@@ -231,12 +312,176 @@
     "vin": "JM3KFBCM8N0444444",
     "historyReportUrl": "https://www.autocheck.com",
     "view360Url": "https://www.mazdausa.com/vehicles/cx-5",
-    "features": ["Bose Audio", "Power Liftgate", "Adaptive Headlights"],
-    "specs": {"engine": "2.5L I4", "horsepower": "187 hp", "drivetrain": "AWD", "mpg": "24/30"},
+    "features": [
+      "Bose Audio",
+      "Power Liftgate",
+      "Adaptive Headlights"
+    ],
+    "specs": {
+      "engine": "2.5L I4",
+      "horsepower": "187 hp",
+      "drivetrain": "AWD",
+      "mpg": "24/30"
+    },
     "images": [
       "https://images.unsplash.com/photo-1609521263047-f8f205293f24?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1616788494672-ec7ca25fdda9?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1200&q=80"
     ]
+  },
+  {
+    "id": "sample-1",
+    "isDisplayed": true,
+    "make": "Porsche",
+    "model": "911 Carrera S",
+    "year": "2023",
+    "price": "145000",
+    "mileage": "3200",
+    "status": "Available",
+    "bodyType": "Coupe",
+    "fuelType": "Gasoline",
+    "transmission": "Automatic",
+    "vin": "WP0AB2A9XS123456",
+    "features": [
+      "Sport Chrono",
+      "Carbon Fiber Roof",
+      "PDLS+"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1503376713353-02f67de44cb0?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1563720225134-2e91219fc3fd?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1620882855913-c97aee0f01a3?auto=format&fit=crop&q=80"
+    ],
+    "specs": {
+      "engine": "3.0L Twin-Turbo H6",
+      "horsepower": "443 hp",
+      "drivetrain": "RWD",
+      "mpg": "18 City / 23 Hwy"
+    },
+    "displayOrder": 1
+  },
+  {
+    "id": "sample-2",
+    "isDisplayed": true,
+    "make": "Mercedes-Benz",
+    "model": "G 63 AMG",
+    "year": "2022",
+    "price": "185000",
+    "mileage": "12500",
+    "status": "Available",
+    "bodyType": "SUV",
+    "fuelType": "Gasoline",
+    "transmission": "Automatic",
+    "vin": "WDC4632761X654321",
+    "features": [
+      "Exclusive Interior Plus",
+      "Night Package",
+      "Burmester Audio"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1520031441872-265e4ff70366?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1533106418989-88406c7e3f81?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&q=80"
+    ],
+    "specs": {
+      "engine": "4.0L V8 Biturbo",
+      "horsepower": "577 hp",
+      "drivetrain": "AWD",
+      "mpg": "13 City / 16 Hwy"
+    },
+    "displayOrder": 2
+  },
+  {
+    "id": "sample-3",
+    "isDisplayed": true,
+    "make": "Audi",
+    "model": "RS e-tron GT",
+    "year": "2024",
+    "price": "152000",
+    "mileage": "800",
+    "status": "Available",
+    "bodyType": "Sedan",
+    "fuelType": "Electric",
+    "transmission": "Automatic",
+    "vin": "WAUZZZF1X4739281",
+    "features": [
+      "Year One Package",
+      "Carbon Ceramic Brakes",
+      "Matrix LED"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1614200187524-dc4b892acf16?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1614200179396-2bdb77ebf81b?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&q=80"
+    ],
+    "specs": {
+      "engine": "Dual Electric Motors",
+      "horsepower": "637 hp",
+      "drivetrain": "AWD",
+      "mpg": "TBD"
+    },
+    "displayOrder": 3
+  },
+  {
+    "id": "sample-4",
+    "isDisplayed": true,
+    "make": "Aston Martin",
+    "model": "DB11 Volante",
+    "year": "2021",
+    "price": "168000",
+    "mileage": "8900",
+    "status": "Reserved",
+    "bodyType": "Convertible",
+    "fuelType": "Gasoline",
+    "transmission": "Automatic",
+    "vin": "SCFDB11X5620001",
+    "features": [
+      "Q Exclusive Color",
+      "Bang & Olufsen",
+      "Ventilated Seats"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1542382029-79282bcbd9a3?auto=format&fit=crop&q=80"
+    ],
+    "specs": {
+      "engine": "4.0L Twin-Turbo V8",
+      "horsepower": "503 hp",
+      "drivetrain": "RWD",
+      "mpg": "18 City / 24 Hwy"
+    },
+    "displayOrder": 4
+  },
+  {
+    "id": "sample-5",
+    "isDisplayed": false,
+    "make": "Range Rover",
+    "model": "Autobiography",
+    "year": "2023",
+    "price": "162000",
+    "mileage": "4500",
+    "status": "Sold",
+    "bodyType": "SUV",
+    "fuelType": "Hybrid",
+    "transmission": "Automatic",
+    "vin": "SALGS2EU1XH399999",
+    "features": [
+      "SV Bespoke Paint",
+      "Meridian Signature Sound",
+      "Executive Class Rear Seating"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1655208479069-0268ec3b2fa5?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1533106418989-88406c7e3f81?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1520031441872-265e4ff70366?auto=format&fit=crop&q=80"
+    ],
+    "specs": {
+      "engine": "PHEV inline-6",
+      "horsepower": "434 hp",
+      "drivetrain": "AWD",
+      "mpg": "TBD"
+    },
+    "displayOrder": 5
   }
 ]

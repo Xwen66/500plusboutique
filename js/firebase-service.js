@@ -166,6 +166,16 @@
     }
   }
 
+  async function removeInquiry(id) {
+    try {
+      requireAuthForWrite();
+      if (!firebaseEnabled || !db) return; // mock
+      await db.collection('inquiries').doc(id).delete();
+    } catch (error) {
+      throw new Error(mapWriteError(error));
+    }
+  }
+
   async function getInquiries() {
     try {
       requireAuthForWrite();
@@ -181,7 +191,7 @@
   function onAuthStateChanged(callback) {
     if (!firebaseEnabled || !auth) {
       callback(null);
-      return function noop() {};
+      return function noop() { };
     }
     return auth.onAuthStateChanged(callback);
   }
@@ -209,6 +219,7 @@
     removeVehicle,
     addInquiry,
     getInquiries,
+    removeInquiry,
     uploadImages,
     onAuthStateChanged,
     signIn,

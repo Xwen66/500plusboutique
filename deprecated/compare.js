@@ -41,7 +41,7 @@ function compareSelected() {
   const rows = [
     ['Vehicle', (v) => `${v.year} ${v.make} ${v.model}`],
     ['Price', (v) => formatMoney(v.price)],
-    ['Mileage', (v) => `${Number(v.mileage || 0).toLocaleString()} mi`],
+    ['Mileage', (v) => `${Number(v.mileage || 0).toLocaleString()} KM`],
     ['Body Type', (v) => v.bodyType || '-'],
     ['Fuel Type', (v) => v.fuelType || '-'],
     ['Transmission', (v) => v.transmission || '-'],

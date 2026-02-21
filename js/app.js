@@ -56,7 +56,7 @@ function renderCards(list) {
           </div>
           <div class="price">${formatMoney(vehicle.price)}</div>
           <div class="specs">
-            <span>${Number(vehicle.mileage || 0).toLocaleString()} mi</span>
+            <span>${Number(vehicle.mileage || 0).toLocaleString()} KM</span>
             <span>${vehicle.bodyType || '-'}</span>
             <span>${vehicle.fuelType || '-'}</span>
             <span>${vehicle.transmission || '-'}</span>
@@ -100,6 +100,8 @@ function applyFilters(list) {
   const maxMileage = Number(controls.mileageMax.value) || Number.MAX_SAFE_INTEGER;
 
   return list.filter((vehicle) => {
+    if (vehicle.isDisplayed === false) return false;
+
     const searchable = `${vehicle.make || ''} ${vehicle.model || ''}`.toLowerCase();
 
     if (query && !searchable.includes(query)) return false;

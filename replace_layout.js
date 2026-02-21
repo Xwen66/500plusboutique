@@ -1,40 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
+const fs = require('fs');
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>500plus | Vehicle Details</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
-</head>
+const files = ['index.html', 'inventory.html', 'vehicle.html', 'inquire.html', 'admin.html'];
 
-<body>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="inventory.html">Collection</a>
-        <a href="inquire.html">Inquire</a>
-      </nav>
-      <a class="brand" href="index.html" style="display: flex; align-items: center;">
-        <img src="assets/images/logo.png" alt="500plus Boutique" style="height: 80px; width: auto;" />
-      </a>
-    </div>
-  </header>
+for (const file of files) {
+  let content = fs.readFileSync(file, 'utf8');
 
-  <main class="container detail-page" id="detailRoot" aria-live="polite">
-    <p>Loading vehicle details...</p>
-  </main>
+  // Replace Nav
+  content = content.replace(/<nav>[\s\S]*?<\/nav>/, `<nav>
+        <a href="index.html"${file === 'index.html' ? ' class="active"' : ''}>Home</a>
+        <a href="inventory.html"${file === 'inventory.html' ? ' class="active"' : ''}>Collection</a>
+      </nav>`);
 
-  <footer class="site-footer">
+  // Replace Brand Logo in Header
+  content = content.replace(/<a class="brand" href="index\.html">[\s\S]*?<\/a>/, `<a class="brand" href="index.html" style="display: flex; align-items: center;">
+        <img src="assets/images/logo.png" alt="500plus Boutique" style="height: 48px; width: auto;" />
+      </a>`);
+
+  // Replace Footer
+  const footerRegex = /<footer class="site-footer">[\s\S]*?<\/footer>/;
+  const newFooter = `<footer class="site-footer">
     <div class="container" style="display: flex; flex-direction: column; align-items: center; gap: 2.5rem; text-align: center;">
       <a href="index.html" style="display: flex; align-items: center; justify-content: center; text-decoration: none;">
-        <img src="assets/images/logo.png" alt="500plus Boutique" style="height: 80px; width: auto; opacity: 1;" />
+        <img src="assets/images/logo.png" alt="500plus Boutique" style="height: 60px; width: auto; opacity: 0.9;" />
       </a>
       
       <p style="max-width: 450px; font-size: 1rem; color: var(--text-muted); line-height: 1.8;">
@@ -66,14 +53,9 @@
         &copy; 2026 Boutique.500plus. All rights reserved.
       </div>
     </div>
-  </footer>
+  </footer>`;
 
-  <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
-  <script src="js/firebase-config.js"></script>
-  <script src="js/firebase-service.js"></script>
-  <script src="js/detail.js" defer></script>
-  <script src="js/theme-dev.js" defer></script>
-</body>
-
-</html>
+  content = content.replace(footerRegex, newFooter);
+  fs.writeFileSync(file, content, 'utf8');
+}
+console.log('Done replacing nav, brand, and footer in 5 files.');
