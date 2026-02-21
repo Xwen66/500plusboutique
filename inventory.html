@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>500plus | Inventory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Fraunces:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">500plus</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="inventory.html" class="active">Inventory</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow">500plus Inventory</p>
+        <h1>Available vehicles</h1>
+        <p>Browse all available listings and open each vehicle page for full details.</p>
+      </div>
+    </section>
+
+    <section class="inventory-section container">
+      <aside class="filters card">
+        <h2>Search & Filter</h2>
+
+        <label for="searchInput">Search make or model</label>
+        <input id="searchInput" type="text" placeholder="e.g. Toyota, Civic" />
+
+        <label for="makeFilter">Make</label>
+        <select id="makeFilter"><option value="">Any</option></select>
+
+        <label for="modelFilter">Model</label>
+        <select id="modelFilter"><option value="">Any</option></select>
+
+        <label for="bodyFilter">Body Type</label>
+        <select id="bodyFilter">
+          <option value="">Any</option>
+          <option>SUV</option>
+          <option>Sedan</option>
+          <option>Truck</option>
+          <option>Coupe</option>
+          <option>Hatchback</option>
+          <option>Van</option>
+        </select>
+
+        <label for="fuelFilter">Fuel Type</label>
+        <select id="fuelFilter">
+          <option value="">Any</option>
+          <option>Gasoline</option>
+          <option>Hybrid</option>
+          <option>Electric</option>
+          <option>Diesel</option>
+        </select>
+
+        <label for="transmissionFilter">Transmission</label>
+        <select id="transmissionFilter">
+          <option value="">Any</option>
+          <option>Automatic</option>
+          <option>Manual</option>
+        </select>
+
+        <label for="statusFilter">Availability</label>
+        <select id="statusFilter">
+          <option value="">Any</option>
+          <option>Available</option>
+          <option>Reserved</option>
+          <option>Sold</option>
+          <option>Coming Soon</option>
+        </select>
+
+        <label for="yearMin">Year (minimum)</label>
+        <input id="yearMin" type="number" min="1990" max="2035" placeholder="2018" />
+
+        <label for="priceMax">Max Price ($)</label>
+        <input id="priceMax" type="number" min="0" step="500" placeholder="35000" />
+
+        <label for="mileageMax">Max Mileage</label>
+        <input id="mileageMax" type="number" min="0" step="1000" placeholder="60000" />
+
+        <button id="clearFilters" class="btn btn-muted" type="button">Clear Filters</button>
+      </aside>
+
+      <section class="results">
+        <div class="results-toolbar card">
+          <div>
+            <h2>Vehicle Listings</h2>
+            <p id="resultCount">Loading inventory...</p>
+          </div>
+          <div>
+            <label for="sortSelect">Sort By</label>
+            <select id="sortSelect">
+              <option value="listing-order">Listing Order</option>
+              <option value="newest">Newest Arrivals</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="year-desc">Year: Newest First</option>
+              <option value="mileage-asc">Mileage: Low to High</option>
+              <option value="popularity">Popularity</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="vehicleGrid" class="vehicle-grid" aria-live="polite"></div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>500plus dealership platform demo.</p>
+    </div>
+  </footer>
+
+  <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/firebase-service.js"></script>
+  <script src="js/theme-dev.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>

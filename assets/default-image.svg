@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="Default vehicle image">
+  <rect width="1200" height="800" fill="#efe7dc"/>
+  <rect x="60" y="60" width="1080" height="680" rx="24" fill="#f8f3ec" stroke="#d8d0c4" stroke-width="8"/>
+  <g fill="none" stroke="#5b6a74" stroke-width="20" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M250 480h700l-40-120c-18-52-68-88-123-88H413c-55 0-105 36-123 88z"/>
+    <circle cx="370" cy="520" r="56"/>
+    <circle cx="830" cy="520" r="56"/>
+    <path d="M460 350h280"/>
+  </g>
+  <text x="600" y="680" font-family="Barlow,Arial,sans-serif" font-size="46" text-anchor="middle" fill="#1f2a32">500plus Default Image</text>
+</svg>

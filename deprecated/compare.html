@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>500plus | Compare Vehicles</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Fraunces:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">500plus</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="compare.html" class="active">Compare</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container compare-page">
+    <section class="card compare-picker">
+      <h1>Compare Vehicles</h1>
+      <p>Select up to 3 vehicles for a side-by-side comparison.</p>
+      <div id="compareOptions" class="compare-options"></div>
+      <button id="runCompare" class="btn" type="button">Compare Selected</button>
+    </section>
+
+    <section class="card">
+      <div id="compareTableWrap" class="compare-table-wrap" aria-live="polite">
+        <p>Select vehicles and click Compare Selected.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>500plus dealership platform demo.</p>
+    </div>
+  </footer>
+
+  <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/firebase-service.js"></script>
+  <script src="js/compare.js" defer></script>
+</body>
+</html>

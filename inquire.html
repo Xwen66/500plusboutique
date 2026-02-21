@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>500plus | Inquire</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Fraunces:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">500plus</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container admin-page">
+    <section class="card admin-form-wrap">
+      <h1>INQUIRE NOW</h1>
+      <p>Leave your contact details and our team will reach out.</p>
+      <p id="inquiryMessage" class="admin-message"></p>
+
+      <form id="inquiryForm" class="admin-grid-2">
+        <label for="inqName">Name</label>
+        <input id="inqName" name="name" />
+
+        <label for="inqPhone">Phone Number</label>
+        <input id="inqPhone" name="phone" />
+
+        <label for="inqEmail">Email</label>
+        <input id="inqEmail" name="email" type="email" />
+
+        <label for="inqComment">Comment</label>
+        <input id="inqComment" name="comment" placeholder="Tell us what you need" />
+
+        <button class="btn" type="submit">Submit Inquiry</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>500plus dealership platform demo.</p>
+    </div>
+  </footer>
+
+  <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/firebase-service.js"></script>
+  <script src="js/theme-dev.js" defer></script>
+  <script src="js/inquiry.js" defer></script>
+</body>
+</html>

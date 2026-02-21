@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>500plus | Admin Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Fraunces:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">500plus</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="admin.html" class="active">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container admin-page">
+    <section class="card admin-top">
+      <h1>Admin Portal</h1>
+      <p id="authNotice">Loading portal...</p>
+      <p id="adminMessage" class="admin-message"></p>
+    </section>
+
+    <section id="authSection" class="card admin-auth hidden">
+      <h2>Admin Sign In</h2>
+      <form id="loginForm" class="admin-grid-2">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" />
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" />
+
+        <button class="btn" type="submit">Sign In</button>
+      </form>
+    </section>
+
+    <section id="portalSection" class="admin-content hidden">
+      <section class="card admin-form-wrap">
+        <div class="admin-form-title-row">
+          <h2 id="formTitle">Add Vehicle</h2>
+          <div class="admin-inline-buttons">
+            <button id="cancelEditBtn" class="btn btn-muted hidden" type="button">Cancel Edit</button>
+            <button id="signOutBtn" class="btn btn-muted" type="button">Sign Out</button>
+          </div>
+        </div>
+
+        <form id="vehicleForm" class="admin-grid-2">
+          <input id="editingVehicleId" type="hidden" />
+
+          <label for="displayOrder">Display Order</label>
+          <input id="displayOrder" name="displayOrder" type="number" min="1" placeholder="Auto" />
+
+          <label for="make">Make</label>
+          <input id="make" name="make" />
+
+          <label for="model">Model</label>
+          <input id="model" name="model" />
+
+          <label for="year">Year</label>
+          <input id="year" name="year" type="number" min="1990" max="2035" />
+
+          <label for="price">Price</label>
+          <input id="price" name="price" type="number" min="0" />
+
+          <label for="mileage">Mileage</label>
+          <input id="mileage" name="mileage" type="number" min="0" />
+
+          <label for="bodyType">Body Type</label>
+          <select id="bodyType" name="bodyType">
+            <option value="">Unspecified</option>
+            <option>SUV</option>
+            <option>Sedan</option>
+            <option>Truck</option>
+            <option>Coupe</option>
+            <option>Hatchback</option>
+            <option>Van</option>
+          </select>
+
+          <label for="fuelType">Fuel Type</label>
+          <select id="fuelType" name="fuelType">
+            <option value="">Unspecified</option>
+            <option>Gasoline</option>
+            <option>Hybrid</option>
+            <option>Electric</option>
+            <option>Diesel</option>
+          </select>
+
+          <label for="transmission">Transmission</label>
+          <select id="transmission" name="transmission">
+            <option value="">Unspecified</option>
+            <option>Automatic</option>
+            <option>Manual</option>
+          </select>
+
+          <label for="status">Status</label>
+          <select id="status" name="status">
+            <option value="">Unspecified</option>
+            <option>Available</option>
+            <option>Reserved</option>
+            <option>Sold</option>
+            <option>Coming Soon</option>
+          </select>
+
+          <label for="vin">VIN</label>
+          <input id="vin" name="vin" />
+
+          <label for="historyReportUrl">History Report URL (optional)</label>
+          <input id="historyReportUrl" name="historyReportUrl" type="url" />
+
+          <label for="videoUrl">Video URL (optional)</label>
+          <input id="videoUrl" name="videoUrl" type="url" />
+
+          <label for="images">Upload Images (PNG/JPG/WebP, optional)</label>
+          <input id="images" name="images" type="file" accept="image/png,image/jpeg,image/webp" multiple />
+
+          <label for="features">Features (comma-separated)</label>
+          <input id="features" name="features" placeholder="Leather, CarPlay, AWD" />
+
+          <label for="engine">Engine (optional)</label>
+          <input id="engine" name="engine" />
+
+          <label for="horsepower">Horsepower (optional)</label>
+          <input id="horsepower" name="horsepower" />
+
+          <label for="drivetrain">Drivetrain (optional)</label>
+          <input id="drivetrain" name="drivetrain" />
+
+          <label for="mpg">MPG / MPGe (optional)</label>
+          <input id="mpg" name="mpg" />
+
+          <button id="submitBtn" class="btn" type="submit">Add Vehicle</button>
+        </form>
+      </section>
+
+      <section class="card admin-list-wrap">
+        <h2>Current Inventory</h2>
+        <p class="admin-hint">Click a row to edit it. Use Up/Down to adjust listing order.</p>
+        <div class="admin-table-scroll">
+          <table class="compare-table admin-table">
+            <thead>
+              <tr>
+                <th>Order</th>
+                <th>Year</th>
+                <th>Vehicle</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="inventoryTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card admin-list-wrap">
+        <h2>Inquiry Records</h2>
+        <div class="admin-table-scroll">
+          <table class="compare-table admin-table">
+            <thead>
+              <tr>
+                <th>Created</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Comment</th>
+              </tr>
+            </thead>
+            <tbody id="inquiryTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>500plus dealership platform demo.</p>
+    </div>
+  </footer>
+
+  <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-storage-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/firebase-service.js"></script>
+  <script src="js/theme-dev.js" defer></script>
+  <script src="js/admin.js" defer></script>
+</body>
+</html>
