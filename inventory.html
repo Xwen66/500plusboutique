@@ -1,23 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>500plus | Inventory</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Fraunces:wght@600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
+
 <body>
   <header class="site-header">
     <div class="container nav-wrap">
-      <a class="brand" href="index.html">500plus</a>
       <nav>
-        <a href="index.html">Home</a>
-        <a href="inventory.html" class="active">Inventory</a>
-        <a href="admin.html">Admin</a>
+        <a href="index.html">Showroom</a>
+        <a href="inventory.html" class="active">Collection</a>
+        <a href="admin.html">Portal</a>
       </nav>
+      <a class="brand" href="index.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path
+            d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1z" />
+        </svg>
+        Boutique<span style="font-weight: 300; color: var(--text-muted)">500+</span>
+      </a>
     </div>
   </header>
 
@@ -38,10 +49,14 @@
         <input id="searchInput" type="text" placeholder="e.g. Toyota, Civic" />
 
         <label for="makeFilter">Make</label>
-        <select id="makeFilter"><option value="">Any</option></select>
+        <select id="makeFilter">
+          <option value="">Any</option>
+        </select>
 
         <label for="modelFilter">Model</label>
-        <select id="modelFilter"><option value="">Any</option></select>
+        <select id="modelFilter">
+          <option value="">Any</option>
+        </select>
 
         <label for="bodyFilter">Body Type</label>
         <select id="bodyFilter">
@@ -116,8 +131,26 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <p>500plus dealership platform demo.</p>
+    <div class="container"
+      style="display: flex; flex-direction: column; align-items: center; gap: 2rem; text-align: center;">
+      <div
+        style="display: flex; align-items: center; gap: 0.75rem; color: var(--brand-navy); font-family: 'Playfair Display', serif; font-size: 1.5rem; letter-spacing: 0.05em;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          style="color: var(--text-muted);">
+          <path
+            d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1z" />
+        </svg>
+        Boutique<span style="font-weight: 300; color: var(--text-muted)">500+</span>
+      </div>
+      <p style="max-width: 450px; font-size: 1rem; color: var(--text-muted); line-height: 1.8;">
+        An exclusive collection of premium, highly-curated vehicles. <br />
+        Available by private appointment only.
+      </p>
+      <div
+        style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2rem; letter-spacing: 0.1em; text-transform: uppercase;">
+        &copy; 2026 Boutique.500plus. All rights reserved.
+      </div>
     </div>
   </footer>
 
@@ -128,4 +161,5 @@
   <script src="js/theme-dev.js" defer></script>
   <script src="js/app.js" defer></script>
 </body>
+
 </html>

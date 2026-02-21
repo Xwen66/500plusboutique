@@ -20,7 +20,17 @@ async function handleInquirySubmit(event) {
   try {
     await window.InventoryService.addInquiry(payload);
     inquiryForm.reset();
-    alert('We will contact you soon!');
+    const modal = document.getElementById('inquiryModal');
+    if (modal) {
+      modal.classList.remove('hidden');
+    }
+    const modalOkBtn = document.getElementById('modalOkBtn');
+    if (modalOkBtn) {
+      modalOkBtn.addEventListener('click', () => {
+        modal.classList.add('hidden');
+        window.location.href = 'inventory.html';
+      });
+    }
     setMessage('Inquiry submitted.');
   } catch (error) {
     console.error(error);

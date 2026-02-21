@@ -6,53 +6,79 @@
   <title>500plus | Welcome</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Fraunces:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="container nav-wrap">
-      <a class="brand" href="index.html">500plus</a>
       <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="inventory.html">Inventory</a>
-        <a href="admin.html">Admin</a>
+        <a href="index.html" class="active">Showroom</a>
+        <a href="inventory.html">Collection</a>
+        <a href="admin.html">Portal</a>
       </nav>
+      <a class="brand" href="index.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+        Boutique<span style="font-weight: 300; color: var(--text-muted)">500+</span>
+      </a>
     </div>
   </header>
 
   <main>
     <section class="hero landing-hero">
-      <div class="container landing-intro">
-        <p class="eyebrow">Welcome to 500plus</p>
-        <h1>Premium pre-owned vehicles with transparent details.</h1>
-        <p>Browse curated listings and view complete specifications, history links, VIN details, and availability status.</p>
+      <div class="container landing-intro" style="display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; z-index: 10;">
+        <p class="eyebrow">Welcome to Boutique 500+</p>
+        <h1>An uncompromising standard of excellence.</h1>
+        <p style="color: var(--text-muted); font-size: 1.15rem; margin-bottom: 2.5rem; max-width: 600px; font-weight: 400;">
+          Discover our hand-picked collection of premium vehicles. No sorting. No filtering. Just absolute perfection in every listing.
+        </p>
         <div class="landing-actions">
-          <a class="btn landing-btn" href="inventory.html">Browse Inventory</a>
-          <a class="btn landing-btn" href="inquire.html">INQUIRE NOW</a>
+          <a class="btn landing-btn" href="inventory.html">Enter Showroom <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 0.5rem;"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+          <a class="btn-secondary landing-btn" href="inquire.html">Inquire Now</a>
         </div>
       </div>
     </section>
 
-    <section class="container landing-grid">
-      <article class="card landing-card">
-        <h2>Certified Listings</h2>
-        <p>Every listing includes detailed specs, photos, and status updates.</p>
+    <section class="container landing-grid" style="margin-top: 3rem; margin-bottom: 6rem;">
+      <article class="card landing-card" style="padding: 2.5rem; display: flex; flex-direction: column; gap: 1rem; border-top: 4px solid var(--brand-navy);">
+        <div style="color: var(--brand-navy); margin-bottom: 0.5rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m21 8-2 2-1.5-3.7A2 2 0 0 0 15.64 5H8.4a2 2 0 0 0-1.9 1.3L5 10 3 8"/><path d="M7 14h.01"/><path d="M17 14h.01"/><rect width="18" height="8" x="3" y="10" rx="2"/><path d="M5 18v2"/><path d="M19 18v2"/></svg>
+        </div>
+        <h2 style="font-size: 1.5rem; font-weight: 600;">Curated Inventory</h2>
+        <p style="font-size: 1.05rem; line-height: 1.6; flex: 1; font-weight: 400;">Every vehicle is explicitly selected to meet the highest standards of performance, provenance, and condition.</p>
       </article>
-      <article class="card landing-card">
-        <h2>Simple Experience</h2>
-        <p>A clean browsing flow focused on vehicle discovery without extra complexity.</p>
+
+      <article class="card landing-card" style="padding: 2.5rem; display: flex; flex-direction: column; gap: 1rem; border-top: 4px solid var(--brand-navy);">
+        <div style="color: var(--brand-navy); margin-bottom: 0.5rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
+        </div>
+        <h2 style="font-size: 1.5rem; font-weight: 600;">Absolute Quality</h2>
+        <p style="font-size: 1.05rem; line-height: 1.6; flex: 1; font-weight: 400;">We reject compromises. You receive comprehensive, transparent specifications for complete peace of mind.</p>
       </article>
-      <article class="card landing-card">
-        <h2>Admin Managed</h2>
-        <p>Inventory is managed in Firebase through the admin portal.</p>
+
+      <article class="card landing-card" style="padding: 2.5rem; display: flex; flex-direction: column; gap: 1rem; border-top: 4px solid var(--brand-navy);">
+        <div style="color: var(--brand-navy); margin-bottom: 0.5rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+        </div>
+        <h2 style="font-size: 1.5rem; font-weight: 600;">Confidence First</h2>
+        <p style="font-size: 1.05rem; line-height: 1.6; flex: 1; font-weight: 400;">Our bespoke process ensures a seamless, white-glove acquisition experience from start to finish.</p>
       </article>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <p>500plus dealership platform demo.</p>
+    <div class="container" style="display: flex; flex-direction: column; align-items: center; gap: 2rem; text-align: center;">
+      <div style="display: flex; align-items: center; gap: 0.75rem; color: var(--brand-navy); font-family: 'Playfair Display', serif; font-size: 1.5rem; letter-spacing: 0.05em;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--text-muted);"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+        Boutique<span style="font-weight: 300; color: var(--text-muted)">500+</span>
+      </div>
+      <p style="max-width: 450px; font-size: 1rem; color: var(--text-muted); line-height: 1.8;">
+        An exclusive collection of premium, highly-curated vehicles. <br />
+        Available by private appointment only.
+      </p>
+      <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2rem; letter-spacing: 0.1em; text-transform: uppercase;">
+        &copy; 2026 Boutique.500plus. All rights reserved.
+      </div>
     </div>
   </footer>
   <script src="js/theme-dev.js" defer></script>

@@ -39,9 +39,9 @@ function renderDetails(vehicle) {
         <img class="main-image" src="${images[0]}" alt="${vehicle.year} ${vehicle.make} ${vehicle.model}" />
         <div class="thumb-row">
           ${images
-            .slice(0, 3)
-            .map((src, index) => `<img src="${src}" alt="${vehicle.make} ${vehicle.model} view ${index + 1}" />`)
-            .join('')}
+      .slice(0, 3)
+      .map((src, index) => `<img src="${src}" alt="${vehicle.make} ${vehicle.model} view ${index + 1}" />`)
+      .join('')}
         </div>
       </div>
 
@@ -56,6 +56,9 @@ function renderDetails(vehicle) {
         <p><strong>Features:</strong> ${features}</p>
         <p><a class="link-btn" href="${vehicle.historyReportUrl || '#'}" target="_blank" rel="noopener noreferrer">Vehicle History Report</a></p>
         ${videoLink}
+        <div style="margin-top: 2rem;">
+          <a class="btn" href="inquire.html?vehicle=${encodeURIComponent(vehicle.year + ' ' + vehicle.make + ' ' + vehicle.model)}" style="width: 100%;">Inquire Now</a>
+        </div>
       </div>
     </section>
 
