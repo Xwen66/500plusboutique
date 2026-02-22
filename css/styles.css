@@ -84,6 +84,20 @@ p {
   letter-spacing: 0.05em;
 }
 
+/* Header / Brand logo sizing (overrides inline height where present) */
+.nav-wrap .brand img {
+  height: 80px !important;
+  width: auto !important;
+  display: block;
+}
+
+/* Footer logo sizing */
+.site-footer img {
+  height: 50px !important;
+  width: auto !important;
+  display: block;
+}
+
 nav {
   display: flex;
   gap: 2.5rem;
