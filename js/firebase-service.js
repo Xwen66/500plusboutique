@@ -103,7 +103,10 @@
 
       const fileName = `${Date.now()}-${Math.random().toString(36).slice(2)}-${file.name.replace(/\s+/g, '-')}`;
       const ref = storage.ref(`vehicle-images/${fileName}`);
-      await ref.put(file, { contentType: file.type });
+      await ref.put(file, {
+        contentType: file.type,
+        cacheControl: 'public, max-age=31536000' // Cache for 1 year to reduce storage reads
+      });
       return ref.getDownloadURL();
     });
 
