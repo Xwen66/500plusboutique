@@ -243,6 +243,31 @@ button {
   gap: 1rem;
 }
 
+/* Homepage-specific: ensure the middle featured vehicle is centered */
+#homeVehicleGrid {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+
+#homeVehicleGrid .vehicle-card {
+  flex: 0 0 340px;
+  max-width: 340px;
+}
+
+@media (max-width: 900px) {
+  #homeVehicleGrid {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  #homeVehicleGrid .vehicle-card {
+    flex: 1 1 100%;
+    max-width: 640px;
+  }
+}
+
 .vehicle-card {
   overflow: hidden;
 }
