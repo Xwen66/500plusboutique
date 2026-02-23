@@ -58,7 +58,7 @@
       </div>
     </div>
   `;
-  
+
   panel.querySelector('.dev-theme-header').addEventListener('click', () => {
     const body = panel.querySelector('#themePanelBody');
     const icon = panel.querySelector('#themeToggleIcon');

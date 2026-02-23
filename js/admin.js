@@ -23,6 +23,11 @@ const existingImagesPreview = document.querySelector('#existingImagesPreview');
 const deleteInquiryModal = document.querySelector('#deleteInquiryModal');
 const cancelDeleteInquiryBtn = document.querySelector('#cancelDeleteInquiryBtn');
 const confirmDeleteInquiryBtn = document.querySelector('#confirmDeleteInquiryBtn');
+const vehicleSaveModal = document.querySelector('#vehicleSaveModal');
+const vehicleSaveTitle = document.querySelector('#vehicleSaveTitle');
+const vehicleSaveText = document.querySelector('#vehicleSaveText');
+const vehicleSaveSpinner = document.querySelector('#vehicleSaveSpinner');
+const vehicleSaveConfirmBtn = document.querySelector('#vehicleSaveConfirmBtn');
 let pendingInquiryDeleteId = null;
 
 const DEFAULT_IMAGE = 'assets/default-image.svg';
@@ -341,6 +346,39 @@ async function loadInventory() {
   renderInventoryTable();
 }
 
+function openVehicleSaveModal(isEditing) {
+  if (!vehicleSaveModal) return;
+  vehicleSaveTitle.textContent = isEditing ? 'Saving Changes' : 'Adding Vehicle';
+  vehicleSaveText.textContent = 'Preparing request...';
+  vehicleSaveSpinner.classList.remove('hidden');
+  vehicleSaveConfirmBtn.disabled = true;
+  vehicleSaveConfirmBtn.classList.remove('ready', 'error');
+  vehicleSaveModal.classList.remove('hidden');
+}
+
+function setVehicleSaveProcessing(text) {
+  if (!vehicleSaveModal || vehicleSaveModal.classList.contains('hidden')) return;
+  vehicleSaveText.textContent = text;
+  vehicleSaveSpinner.classList.remove('hidden');
+  vehicleSaveConfirmBtn.disabled = true;
+  vehicleSaveConfirmBtn.classList.remove('ready', 'error');
+}
+
+function setVehicleSaveReady(text, isError = false) {
+  if (!vehicleSaveModal || vehicleSaveModal.classList.contains('hidden')) return;
+  vehicleSaveText.textContent = text;
+  vehicleSaveSpinner.classList.add('hidden');
+  vehicleSaveConfirmBtn.disabled = false;
+  vehicleSaveConfirmBtn.classList.add('ready');
+  vehicleSaveConfirmBtn.classList.toggle('error', isError);
+}
+
+function closeVehicleSaveModal() {
+  if (!vehicleSaveModal) return;
+  if (vehicleSaveConfirmBtn.disabled) return;
+  vehicleSaveModal.classList.add('hidden');
+}
+
 async function handleAddOrUpdateVehicle(event) {
   event.preventDefault();
 
@@ -348,12 +386,16 @@ async function handleAddOrUpdateVehicle(event) {
   const imageFiles = imagesInput.files;
   const editingId = editingVehicleIdInput.value;
   const existingVehicle = vehicles.find((item) => item.id === editingId);
+  const isEditing = Boolean(editingId);
+
+  openVehicleSaveModal(isEditing);
+  submitBtn.disabled = true;
 
   try {
     let imageUrls = [...editingImagePool];
 
     if (imageFiles && imageFiles.length) {
-      setMessage('Uploading images...');
+      setVehicleSaveProcessing('Uploading images...');
       const uploaded = await window.InventoryService.uploadImages(imageFiles);
       imageUrls = [...imageUrls, ...uploaded];
     }
@@ -361,6 +403,8 @@ async function handleAddOrUpdateVehicle(event) {
     if (!imageUrls.length) {
       imageUrls = [DEFAULT_IMAGE];
     }
+
+    setVehicleSaveProcessing(isEditing ? 'Saving vehicle updates...' : 'Saving vehicle...');
 
     const enteredOrder = toNumber(formData.get('displayOrder'));
     const maxOrder = vehicles.reduce((max, item, idx) => Math.max(max, orderValue(item, idx + 1)), 0);
@@ -394,9 +438,11 @@ async function handleAddOrUpdateVehicle(event) {
     if (editingId) {
       await window.InventoryService.updateVehicle(editingId, vehiclePayload);
       setMessage('Vehicle updated successfully.');
+      setVehicleSaveReady('Vehicle updated successfully. Click Confirm to close.');
     } else {
       await window.InventoryService.addVehicle(vehiclePayload);
       setMessage('Vehicle added successfully.');
+      setVehicleSaveReady('Vehicle added successfully. Click Confirm to close.');
     }
 
     clearFormToAddMode();
@@ -404,6 +450,9 @@ async function handleAddOrUpdateVehicle(event) {
   } catch (error) {
     console.error(error);
     setMessage(error.message || 'Failed to save vehicle.', true);
+    setVehicleSaveReady(error.message || 'Failed to save vehicle. Click Confirm to close.', true);
+  } finally {
+    submitBtn.disabled = false;
   }
 }
 
@@ -489,6 +538,12 @@ window.InventoryService.onAuthStateChanged(setPortalAccess);
 
 cancelDeleteInquiryBtn.addEventListener('click', closeDeleteInquiryModal);
 confirmDeleteInquiryBtn.addEventListener('click', confirmDeleteInquiry);
+
+vehicleSaveConfirmBtn.addEventListener('click', closeVehicleSaveModal);
+vehicleSaveModal.addEventListener('click', (event) => {
+  if (event.target === vehicleSaveModal) closeVehicleSaveModal();
+});
+
 deleteInquiryModal.addEventListener('click', (event) => {
   if (event.target === deleteInquiryModal) closeDeleteInquiryModal();
 });

@@ -250,6 +250,15 @@
     </div>
   </div>
 
+  <div id="vehicleSaveModal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="vehicleSaveTitle">
+    <div class="modal-content save-progress-modal">
+      <h2 id="vehicleSaveTitle">Saving Vehicle</h2>
+      <p id="vehicleSaveText">Preparing request...</p>
+      <div id="vehicleSaveSpinner" class="save-spinner" aria-hidden="true"></div>
+      <button id="vehicleSaveConfirmBtn" class="btn save-confirm-btn" type="button" disabled>Confirm</button>
+    </div>
+  </div>
+
   <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
