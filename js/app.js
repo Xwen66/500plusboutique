@@ -49,7 +49,9 @@ function renderCards(list) {
     .map(
       (vehicle) => `
       <article class="vehicle-card card">
-        <img src="${primaryImage(vehicle)}" alt="${vehicle.year} ${vehicle.make} ${vehicle.model}" loading="lazy" />
+        <a href="vehicle.html?id=${vehicle.id}" aria-label="View ${vehicle.year} ${vehicle.make} ${vehicle.model} details">
+          <img src="${primaryImage(vehicle)}" alt="${vehicle.year} ${vehicle.make} ${vehicle.model}" loading="lazy" />
+        </a>
         <div class="vehicle-card-content">
           <div class="vehicle-title">
             <span>${vehicle.year} ${vehicle.make} ${vehicle.model}</span>

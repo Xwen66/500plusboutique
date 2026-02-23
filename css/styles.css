@@ -11,6 +11,38 @@
   --bg-main: var(--brand-grey-light);
   --bg-surface: #FFFFFF;
   --border: var(--brand-grey-mid);
+  --header-bg: #FFFFFF;
+  --label-text: #394a56;
+  --spec-text: #4d5e69;
+  --link-border: #c8d0d5;
+  --spec-divider: #d9d6cf;
+  --btn-muted-bg: #31424f;
+  --btn-muted-text: #ffffff;
+  --btn-danger-bg: #9f2a33;
+  --btn-danger-text: #ffffff;
+  --status-available-bg: #d5f3e3;
+  --status-available-text: #145736;
+  --status-sold-bg: #ead0d0;
+  --status-sold-text: #7e1f1f;
+  --status-reserved-bg: #fde7b4;
+  --status-reserved-text: #6e4b06;
+  --status-coming-bg: #d9e8ff;
+  --status-coming-text: #1f3f7a;
+  --admin-message-info: #2e4a6b;
+  --admin-message-error: #8f1e28;
+  --row-hover-bg: #f9f5ef;
+  --dev-panel-bg: #ffffff;
+  --modal-overlay-bg: #0f2f52;
+  --main-image-hint-bg: #1d2228;
+  --main-image-hint-text: #ffffff;
+  --thumb-nav-bg: #ffffff;
+  --lightbox-overlay-bg: #07090b;
+  --lightbox-close-bg: #ffffff;
+  --image-delete-bg: #111111;
+  --image-delete-text: #ffffff;
+  --save-spinner-track: #d3dae0;
+  --save-btn-disabled-bg: #9aa4ad;
+  --save-btn-disabled-text: #ffffff;
 
   /* Legacy variable mappings to maintain other pages */
   --bg: var(--bg-main);
@@ -56,7 +88,7 @@ p {
 }
 
 .site-header {
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--header-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
@@ -164,7 +196,7 @@ nav a:hover {
 label {
   font-size: 0.86rem;
   font-weight: 600;
-  color: #394a56;
+  color: var(--label-text);
 }
 
 input,
@@ -227,14 +259,14 @@ button {
 }
 
 .btn-muted {
-  background: #31424f;
-  color: #fff;
+  background: var(--btn-muted-bg);
+  color: var(--btn-muted-text);
 }
 
 .btn-danger {
   width: auto;
-  background: #9f2a33;
-  color: #fff;
+  background: var(--btn-danger-bg);
+  color: var(--btn-danger-text);
   border: none;
   padding: 0.4rem 0.6rem;
 }
@@ -317,7 +349,7 @@ button {
   gap: 0.5rem;
   flex-wrap: wrap;
   font-size: 0.88rem;
-  color: #4d5e69;
+  color: var(--spec-text);
 }
 
 .status {
@@ -330,23 +362,23 @@ button {
 }
 
 .status-available {
-  background: #d5f3e3;
-  color: #145736;
+  background: var(--status-available-bg);
+  color: var(--status-available-text);
 }
 
 .status-sold {
-  background: #ead0d0;
-  color: #7e1f1f;
+  background: var(--status-sold-bg);
+  color: var(--status-sold-text);
 }
 
 .status-reserved {
-  background: #fde7b4;
-  color: #6e4b06;
+  background: var(--status-reserved-bg);
+  color: var(--status-reserved-text);
 }
 
 .status-coming-soon {
-  background: #d9e8ff;
-  color: #1f3f7a;
+  background: var(--status-coming-bg);
+  color: var(--status-coming-text);
 }
 
 .link-btn {
@@ -355,7 +387,7 @@ button {
   border-radius: 10px;
   padding: 0.52rem;
   font-weight: 600;
-  border: 1px solid #c8d0d5;
+  border: 1px solid var(--link-border);
   color: var(--ink);
 }
 
@@ -410,7 +442,7 @@ button {
 }
 
 .spec-list div {
-  border-bottom: 1px dashed #d9d6cf;
+  border-bottom: 1px dashed var(--spec-divider);
   padding-bottom: 0.35rem;
 }
 
@@ -511,11 +543,11 @@ button {
 .admin-message {
   margin-top: 0.4rem;
   margin-bottom: 0;
-  color: #2e4a6b;
+  color: var(--admin-message-info);
 }
 
 .admin-message.error {
-  color: #8f1e28;
+  color: var(--admin-message-error);
 }
 
 .hidden {
@@ -572,7 +604,7 @@ button {
 }
 
 .admin-row:hover {
-  background: #f9f5ef;
+  background: var(--row-hover-bg);
 }
 
 .admin-action-cell {
@@ -592,7 +624,7 @@ button {
   right: 14px;
   bottom: 14px;
   width: 240px;
-  background: #fff;
+  background: var(--dev-panel-bg);
   border: 1px solid var(--border);
   border-radius: 12px;
   box-shadow: var(--shadow);
@@ -613,6 +645,18 @@ button {
 .dev-theme-controls {
   display: grid;
   gap: 0.35rem;
+  max-height: min(48vh, 420px);
+  overflow-y: auto;
+  padding-right: 0.15rem;
+}
+
+.dev-theme-controls::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dev-theme-controls::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--brand-navy) 35%, transparent);
+  border-radius: 999px;
 }
 
 .dev-theme-row {
@@ -697,7 +741,7 @@ button {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 31, 63, 0.5);
+  background: color-mix(in srgb, var(--modal-overlay-bg) 50%, transparent);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -780,8 +824,8 @@ button {
   position: absolute;
   right: 10px;
   bottom: 10px;
-  background: rgba(0, 0, 0, 0.65);
-  color: #fff;
+  background: color-mix(in srgb, var(--main-image-hint-bg) 65%, transparent);
+  color: var(--main-image-hint-text);
   font-size: 0.75rem;
   padding: 0.28rem 0.5rem;
   border-radius: 999px;
@@ -833,7 +877,7 @@ button {
   width: 34px;
   height: 34px;
   border: 1px solid var(--border);
-  background: #fff;
+  background: var(--thumb-nav-bg);
   border-radius: 50%;
   font-size: 1.25rem;
   line-height: 1;
@@ -845,7 +889,7 @@ button {
 .image-lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.82);
+  background: color-mix(in srgb, var(--lightbox-overlay-bg) 82%, transparent);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -872,7 +916,7 @@ button {
   height: 40px;
   border-radius: 999px;
   border: none;
-  background: rgba(255, 255, 255, 0.92);
+  background: color-mix(in srgb, var(--lightbox-close-bg) 92%, transparent);
   font-size: 1.15rem;
   font-weight: 700;
 }
@@ -912,8 +956,8 @@ button {
   height: 22px;
   border-radius: 999px;
   border: none;
-  background: rgba(0, 0, 0, 0.7);
-  color: #fff;
+  background: color-mix(in srgb, var(--image-delete-bg) 70%, transparent);
+  color: var(--image-delete-text);
   font-size: 0.8rem;
   line-height: 1;
   display: inline-flex;
@@ -932,7 +976,7 @@ button {
   left: 4px;
   bottom: 4px;
   background: var(--brand-navy);
-  color: #fff;
+  color: var(--btn-muted-text);
   font-size: 0.65rem;
   padding: 0.1rem 0.3rem;
   border-radius: 999px;
@@ -944,7 +988,7 @@ button {
 .save-spinner {
   width: 42px;
   height: 42px;
-  border: 4px solid #d3dae0;
+  border: 4px solid var(--save-spinner-track);
   border-top-color: var(--brand-navy);
   border-radius: 50%;
   margin: 0 auto 1rem;
@@ -962,8 +1006,8 @@ button {
 
 .save-confirm-btn:disabled,
 .save-confirm-btn:disabled:hover {
-  background: #9aa4ad;
-  color: #ffffff;
+  background: var(--save-btn-disabled-bg);
+  color: var(--save-btn-disabled-text);
   cursor: not-allowed;
   transform: none;
   box-shadow: none;
@@ -975,7 +1019,7 @@ button {
 }
 
 .save-confirm-btn.ready.error:not(:disabled) {
-  background: #9f2a33;
+  background: var(--btn-danger-bg);
   color: var(--text-light);
 }
 

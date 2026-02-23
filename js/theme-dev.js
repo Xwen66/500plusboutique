@@ -1,21 +1,68 @@
 (function themeDevPanel() {
-  // Always active during frontend design phase
   const root = document.documentElement;
-  const storageKey = 'theme-dev-colors-v4';
-  const vars = [
-    ['--bg-main', 'Background'],
-    ['--bg-surface', 'Panel'],
-    ['--text-primary', 'Text'],
-    ['--text-muted', 'Muted'],
-    ['--brand-navy', 'Navy'],
-    ['--brand-accent', 'Accent'],
-    ['--border', 'Border']
+  const storageKey = 'theme-dev-colors-v6';
+  const currentPage = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+
+  const pageHint = {
+    'index.html': ['index', 'inventory-like'],
+    'inventory.html': ['inventory-like'],
+    'vehicle.html': ['inventory-like', 'vehicle-detail'],
+    'inquire.html': ['inquire']
+  }[currentPage] || [];
+
+  const catalog = [
+    { name: '--bg-main', label: 'Page Bg', always: true },
+    { name: '--bg-surface', label: 'Card Bg', always: true },
+    { name: '--header-bg', label: 'Header Bg', always: true },
+    { name: '--text-primary', label: 'Text', always: true },
+    { name: '--text-muted', label: 'Muted Text', always: true },
+    { name: '--brand-navy', label: 'Primary', always: true },
+    { name: '--brand-accent', label: 'Accent', always: true },
+    { name: '--border', label: 'Border', always: true },
+    { name: '--dev-panel-bg', label: 'Theme Panel Bg', always: true },
+
+    { name: '--label-text', label: 'Label Text', selectors: ['label'] },
+    { name: '--link-border', label: 'Link Border', selectors: ['.link-btn'] },
+    { name: '--spec-divider', label: 'Spec Divider', selectors: ['.spec-list'] },
+    { name: '--btn-muted-bg', label: 'Muted Btn Bg', selectors: ['.btn-muted'] },
+    { name: '--btn-muted-text', label: 'Muted Btn Text', selectors: ['.btn-muted'] },
+    { name: '--btn-danger-bg', label: 'Danger Btn Bg', selectors: ['.btn-danger'] },
+    { name: '--btn-danger-text', label: 'Danger Btn Text', selectors: ['.btn-danger'] },
+
+    { name: '--status-available-bg', label: 'Available Bg', tags: ['inventory-like'] },
+    { name: '--status-available-text', label: 'Available Text', tags: ['inventory-like'] },
+    { name: '--status-sold-bg', label: 'Sold Bg', tags: ['inventory-like'] },
+    { name: '--status-sold-text', label: 'Sold Text', tags: ['inventory-like'] },
+    { name: '--status-reserved-bg', label: 'Reserved Bg', tags: ['inventory-like'] },
+    { name: '--status-reserved-text', label: 'Reserved Text', tags: ['inventory-like'] },
+    { name: '--status-coming-bg', label: 'Coming Bg', tags: ['inventory-like'] },
+    { name: '--status-coming-text', label: 'Coming Text', tags: ['inventory-like'] },
+
+    { name: '--modal-overlay-bg', label: 'Modal Overlay', tags: ['inquire'], selectors: ['.modal-overlay'] },
+    { name: '--main-image-hint-bg', label: 'Image Hint Bg', tags: ['vehicle-detail'], selectors: ['.main-image-hint'] },
+    { name: '--main-image-hint-text', label: 'Image Hint Text', tags: ['vehicle-detail'], selectors: ['.main-image-hint'] },
+    { name: '--thumb-nav-bg', label: 'Thumb Nav Bg', tags: ['vehicle-detail'], selectors: ['.thumb-nav'] },
+    { name: '--lightbox-overlay-bg', label: 'Lightbox Overlay', tags: ['vehicle-detail'], selectors: ['.image-lightbox'] },
+    { name: '--lightbox-close-bg', label: 'Lightbox Close', tags: ['vehicle-detail'], selectors: ['.lightbox-close'] }
   ];
 
+  function shouldShowItem(item) {
+    if (item.always) return true;
+    const tagMatch = Array.isArray(item.tags) && item.tags.some((tag) => pageHint.includes(tag));
+    const selectorMatch = Array.isArray(item.selectors) && item.selectors.some((sel) => document.querySelector(sel));
+    return Boolean(tagMatch || selectorMatch);
+  }
+
+  const selectedVars = catalog
+    .filter(shouldShowItem)
+    .map((item) => [item.name, item.label])
+    .sort((a, b) => a[1].localeCompare(b[1]));
+
   function rgbToHex(rgb) {
-    const match = rgb.replace(/\s+/g, '').match(/^rgb\((\d+),(\d+),(\d+)\)$/i);
-    if (!match) return rgb;
-    const [r, g, b] = match.slice(1).map((n) => Number(n).toString(16).padStart(2, '0'));
+    const cleaned = String(rgb || '').replace(/\s+/g, '');
+    const rgba = cleaned.match(/^rgba?\((\d+),(\d+),(\d+)/i);
+    if (!rgba) return rgb;
+    const [r, g, b] = rgba.slice(1, 4).map((n) => Number(n).toString(16).padStart(2, '0'));
     return `#${r}${g}${b}`;
   }
 
@@ -30,7 +77,6 @@
   function applyColors(colors) {
     Object.entries(colors).forEach(([name, value]) => {
       root.style.setProperty(name, value);
-      if (name === '--brand-navy') root.style.setProperty('--btn-bg', value);
     });
   }
 
@@ -51,7 +97,7 @@
       <span id="themeToggleIcon" style="font-size: 1.5rem; line-height: 1;">+</span>
     </div>
     <div id="themePanelBody" style="display: none; margin-top: 1rem;">
-      <p>Color controls for rapid layout tuning.</p>
+      <p>Colors for ${currentPage}.</p>
       <div class="dev-theme-controls"></div>
       <div class="dev-theme-actions">
         <button type="button" class="btn btn-muted" id="themeResetBtn">Reset</button>
@@ -62,23 +108,17 @@
   panel.querySelector('.dev-theme-header').addEventListener('click', () => {
     const body = panel.querySelector('#themePanelBody');
     const icon = panel.querySelector('#themeToggleIcon');
-    if (body.style.display === 'none') {
-      body.style.display = 'block';
-      icon.textContent = '-';
-    } else {
-      body.style.display = 'none';
-      icon.textContent = '+';
-    }
+    const isClosed = body.style.display === 'none';
+    body.style.display = isClosed ? 'block' : 'none';
+    icon.textContent = isClosed ? '-' : '+';
   });
 
   const controlsWrap = panel.querySelector('.dev-theme-controls');
   const colors = {};
 
-  vars.forEach(([name, label]) => {
-    // delay grabbing initial value until element styles resolve if needed, but synchronous is usually fine
+  selectedVars.forEach(([name, label]) => {
     const value = getColorValue(name);
     colors[name] = value;
-
     const row = document.createElement('label');
     row.className = 'dev-theme-row';
     row.innerHTML = `<span>${label}</span><input type="color" data-var="${name}" value="${value}" />`;
