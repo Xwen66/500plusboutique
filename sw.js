@@ -1,4 +1,4 @@
-const SW_VERSION = 'v1.0.0';
+const SW_VERSION = new URL(self.location.href).searchParams.get('v') || 'dev';
 const STATIC_CACHE = `static-${SW_VERSION}`;
 
 const PRECACHE_URLS = [

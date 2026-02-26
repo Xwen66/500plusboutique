@@ -1,4 +1,7 @@
 (function themeDevPanel() {
+  // Temporary switch: keep file loaded but disable panel rendering.
+  const DEV_PANEL_ENABLED = false;
+  if (!DEV_PANEL_ENABLED) return;
   const root = document.documentElement;
   const storageKey = 'theme-dev-colors-v6';
   const currentPage = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
@@ -80,12 +83,20 @@
     });
   }
 
+  const defaultColors = {};
+  selectedVars.forEach(([name]) => {
+    defaultColors[name] = getColorValue(name);
+  });
+
+  let savedColors = {};
   const saved = localStorage.getItem(storageKey);
   if (saved) {
     try {
-      applyColors(JSON.parse(saved));
+      savedColors = JSON.parse(saved) || {};
+      applyColors(savedColors);
     } catch (_) {
       localStorage.removeItem(storageKey);
+      savedColors = {};
     }
   }
 
@@ -114,22 +125,49 @@
   });
 
   const controlsWrap = panel.querySelector('.dev-theme-controls');
-  const colors = {};
+  const colors = { ...savedColors };
+  const inputsByVar = {};
+
+  function persistColors() {
+    localStorage.setItem(storageKey, JSON.stringify(colors));
+  }
 
   selectedVars.forEach(([name, label]) => {
     const value = getColorValue(name);
     colors[name] = value;
-    const row = document.createElement('label');
+
+    const row = document.createElement('div');
     row.className = 'dev-theme-row';
-    row.innerHTML = `<span>${label}</span><input type="color" data-var="${name}" value="${value}" />`;
+    row.innerHTML = `
+      <span class="dev-theme-label">${label}</span>
+      <div class="dev-theme-row-controls">
+        <input type="color" data-var="${name}" value="${value}" />
+        <button type="button" class="dev-theme-row-reset" data-var="${name}">Reset</button>
+      </div>
+    `;
     controlsWrap.appendChild(row);
+
+    const input = row.querySelector('input[type="color"]');
+    if (input) inputsByVar[name] = input;
   });
 
   controlsWrap.querySelectorAll('input[type="color"]').forEach((input) => {
     input.addEventListener('input', () => {
-      colors[input.dataset.var] = input.value;
-      applyColors(colors);
-      localStorage.setItem(storageKey, JSON.stringify(colors));
+      const varName = input.dataset.var;
+      colors[varName] = input.value;
+      root.style.setProperty(varName, input.value);
+      persistColors();
+    });
+  });
+
+  controlsWrap.querySelectorAll('button.dev-theme-row-reset').forEach((button) => {
+    button.addEventListener('click', () => {
+      const varName = button.dataset.var;
+      const defaultValue = defaultColors[varName] || '#ffffff';
+      colors[varName] = defaultValue;
+      root.style.setProperty(varName, defaultValue);
+      if (inputsByVar[varName]) inputsByVar[varName].value = defaultValue;
+      persistColors();
     });
   });
 

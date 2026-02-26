@@ -15,3 +15,9 @@ node_modules/
 # IDE
 .vscode/
 .idea/
+.firebase/
+.firebase/**
+500plusboutique/
+extensions/*.env
+FIREBASE_SETUP.md
+500PlusInformation

@@ -27,8 +27,8 @@ function renderFeatured(list) {
   homeVehicleGrid.innerHTML = list
     .map(
       (vehicle) => `
-      <article class="vehicle-card card">
-        <a href="vehicle.html?id=${vehicle.id}" aria-label="View ${vehicle.year || ''} ${vehicle.make || ''} ${vehicle.model || ''} details">
+      <article class="vehicle-card card" data-vehicle-id="${vehicle.id}">
+        <a class="vehicle-image-link" href="vehicle.html?id=${vehicle.id}" aria-label="View ${vehicle.year || ''} ${vehicle.make || ''} ${vehicle.model || ''} details">
           <img src="${vehicle.images?.[0] || DEFAULT_IMAGE}" alt="${vehicle.year || ''} ${vehicle.make || ''} ${vehicle.model || ''}" loading="lazy" />
         </a>
         <div class="vehicle-card-content">
@@ -49,6 +49,24 @@ function renderFeatured(list) {
     `
     )
     .join('');
+}
+
+function bindFeaturedImageNavigation() {
+  if (!homeVehicleGrid) return;
+
+  homeVehicleGrid.addEventListener('click', (event) => {
+    const image = event.target.closest('.vehicle-image-link img, .vehicle-image-link');
+    if (!image) return;
+
+    const card = event.target.closest('.vehicle-card[data-vehicle-id]');
+    if (!card) return;
+
+    const id = card.dataset.vehicleId;
+    if (!id) return;
+
+    event.preventDefault();
+    window.location.href = `vehicle.html?id=${encodeURIComponent(id)}`;
+  });
 }
 
 async function initFeatured() {
@@ -72,4 +90,5 @@ async function initFeatured() {
   }
 }
 
+bindFeaturedImageNavigation();
 initFeatured();
