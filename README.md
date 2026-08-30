@@ -45,6 +45,10 @@ Admin interface -> Firebase Authentication -> Firestore / Storage (write)
 
 This repository is a portfolio demonstration. It contains no production credentials, customer records, or live business data.
 
+### GitHub Pages Demo
+
+The GitHub Pages deployment runs in UI-only demo mode. It loads the local sample inventory from `data/vehicles.json`; Firebase is not configured, and the inquiry form deliberately does not send or store visitor information.
+
 ## Future Improvements
 
 - Add inquiry validation and spam protection
