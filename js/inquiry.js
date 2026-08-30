@@ -9,6 +9,13 @@ function setMessage(text, isError = false) {
 async function handleInquirySubmit(event) {
   event.preventDefault();
 
+  // The public GitHub Pages build is a UI-only portfolio demo. Do not collect visitor data.
+  if (!window.InventoryService.isFirebaseEnabled()) {
+    inquiryForm.reset();
+    setMessage('Demo mode: this form is for UI demonstration only and does not send or store your information.');
+    return;
+  }
+
   const formData = new FormData(inquiryForm);
   const payload = {
     name: String(formData.get('name') || '').trim(),
